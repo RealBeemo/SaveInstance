@@ -60,6 +60,17 @@ for _, service in ipairs(servicesTable) do
     end
 end
 
+--//Nil Scripts
+local NilFolder = Instance.new("Folder", game)
+NilFolder.Name = "Nil Instances"
+
+for _, obj in ipairs(game:GetDescendants()) do
+    if (obj:IsA('LocalScript') or obj:IsA('ModuleScript') or (obj:IsA('Script') and obj.RunContext == Enum.RunContext.Client)) and not obj.Parent then
+        table.insert(scripts, obj)
+        obj.Parent = NilFolder
+    end
+end
+
 local total = #scripts
 local processed = 0
 
