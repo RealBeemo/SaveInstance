@@ -1,6 +1,6 @@
 local httpService = cloneref(game:GetService('HttpService'))
 
-local msg = Instance.new('Message', game:GetService('CoreGui'))
+local msg = Instance.new('Hint', game:GetService('CoreGui'))
 msg.Text = 'Starting decompilation...'
 
 --//Credits to lonegladiator for the decompiler
