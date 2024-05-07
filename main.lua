@@ -60,6 +60,13 @@ for _, service in ipairs(servicesTable) do
     end
 end
 
+--//Getting Nil Scripts
+for _, obj in ipairs(game:GetDescendants()) do
+    if (obj:IsA('LocalScript') or obj:IsA('ModuleScript') or (obj:IsA('Script') and obj.RunContext == Enum.RunContext.Client)) and not obj.Parent then
+        table.insert(scripts, obj)
+    end
+end
+
 local total = #scripts
 local processed = 0
 
